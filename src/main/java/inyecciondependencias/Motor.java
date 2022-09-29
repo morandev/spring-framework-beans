@@ -7,6 +7,10 @@ public class Motor {
 		revoluciones = 1500;
 	}
 	
+	public void acelerar() {
+		revoluciones += 100;
+	}
+	
 	public int getRevoluciones() {
 		return revoluciones;
 	}

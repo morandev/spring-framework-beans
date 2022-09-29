@@ -6,7 +6,6 @@ public class MotorGasolina implements IMotor{
 	
 	private int currentRPM;
 	
-	@Override
 	public void acelerar() {
 		/*
 		 * realizarAdmision()
@@ -16,7 +15,6 @@ public class MotorGasolina implements IMotor{
 		 */
 	}
 	
-	 @Override
 	public int getRevoluciones() {
 		return currentRPM;
 	}

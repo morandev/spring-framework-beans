@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <!--
+    	para definir utilizamos la etiqueta bean
+  		
+  		esta etiqueta nos permite definir los metadatos
+  		asociados a una clase que sea gestionada por el
+  		contenedor IoC
+     -->
+    <bean id="mundo" class="beans.Mundo">
+    	<!-- 
+    		dentro de la clase mundo tenemos una propiedad mensaje
+    		
+    		desde aqui podemos establecerle un valor inicial
+    	-->
+    	
+    	<!--     	
+	    	<property 
+	    		name="mensaje"
+	    		value="Hello world from Spring IoC"
+	    	></property>
+    	-->
+    	
+    	<!-- 
+    		tambien se puede inyectar desde un constructor
+    		
+    	-->
+    	<constructor-arg 
+    		name="mensaje" 
+    		value="Constructor Bean hello world!"
+		>
+    	</constructor-arg>
+    	
+    </bean>
+    
+</beans> 
