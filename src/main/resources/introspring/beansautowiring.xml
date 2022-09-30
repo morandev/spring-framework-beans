@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	default-lazy-init="default"
+>
+    
+	<bean
+		id="cliente"
+		class="beanwithautowiring.Cliente"
+	>
+		<property name="id" value="1"></property>
+		<property name="persona" ref="persona"></property>
+	</bean>    
+	<!-- 
+		The byName mode injects the object dependency according to name of the bean. 
+		In such a case, the property and bean name should be the same. 
+		It internally calls the setter method. 
+			Usando este tipo de inyeccion podriamos dejar comentada la property 
+			ciudad y aun asi la dependencia seria inyectada
+			Es mas potente que la inyeccion byType
+		
+		The byType mode injects the object dependency according to type.
+		So it can have a different property and bean name. 
+		It internally calls the setter method.
+			Usando este tipo nos podemos dar el lujo de dejar un nombre alternativo
+			en el bean ciudad. Pero tenemos la desventaja de que si tuviesemos
+			dos o mas beans de tipo ciudad, Spring no sabria cual escojer para 
+			satisfacer la dependencia.
+		
+	-->
+	<bean
+		id="persona"
+		class="beanwithautowiring.Persona"
+		autowire="byType"
+	>
+		<property name="nombre" value="morandev"></property>
+		<!-- 
+		<property name="ciudad" ref="ciudad"></property>
+		-->
+	</bean>
+	
+	<bean
+		id="ciudad"
+		class="beanwithautowiring.Ciudad"
+	>
+		<property name="nombre" value="Buenos Aires"></property>
+	</bean>
+    
+</beans>
