@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- BEANS WITH LIST -->
+	<bean
+		id="Sevilla"
+		class="beanwithlist.Provincia"
+	>
+		<property 
+			name="nombre"
+			value="Sevilla"
+		>
+		</property>
+		<property 
+			name="poblaciones"
+		>
+			<list>
+				<!-- 
+						usar ref dentro de una list es lo mismo que 
+									definir un bean
+					ya que ref hace referencia a un bean definido fuera de la 
+										list
+				-->
+				<ref bean="capitalDeSevilla"/> 
+				<bean
+					class="beanwithlist.Poblacion"
+				>
+					<property 
+						name="nombre"
+						value="Ecija"
+					>
+					</property>
+					<property 
+						name="cantHab"
+						value="1500"
+					>
+					</property>
+				</bean>
+				<bean
+					class="beanwithlist.Poblacion"
+				>
+					<property 
+						name="nombre"
+						value="Mairena del Aljarafe"
+					>
+					</property>
+					<property 
+						name="cantHab"
+						value="2500"
+					>
+					</property>
+				</bean>
+				<ref bean="dosHermanas"/>
+			</list>
+		</property>
+	</bean>
+
+
+	<bean
+		id="dosHermanas"
+		class="beanwithlist.Poblacion"
+	>
+		<property 
+			name="nombre"
+			value="Dos Hermanas"
+		>
+		</property>
+		<property 
+			name="cantHab"
+			value="130369"
+		>
+		</property>
+	</bean>
+	
+	<bean
+		id="capitalDeSevilla"
+		class="beanwithlist.Poblacion"
+	>
+		<property 
+			name="nombre"
+			value="Sevilla"
+		>
+		</property>
+		<property 
+			name="cantHab"
+			value="696676"
+		>
+		</property>
+	</bean>
+	<!-- BEANS WITH MAP -->
+	<bean
+		id="agenda"	
+		class="beanwithmap.Agenda"
+	>
+		<constructor-arg>
+			<map>
+				<entry
+					key="954123456789"
+				>
+					<bean
+						class="beanwithmap.Contacto"
+					>
+						<property 
+							name="nombre"
+							value="Marta"
+						>
+						</property>
+						<property 
+							name="telefono"
+							value="954123456789"
+						>
+						</property>
+						<property 
+							name="email"
+							value="marta@gmail.com"
+						>
+						</property>
+					</bean>
+				</entry>
+				<entry
+					key="954123456789"
+					value-ref="Andrea"
+				>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean
+		id="Andrea"
+		class="beanwithmap.Contacto"
+	>
+		<property 
+			name="nombre"
+			value="Andrea"
+		>
+		</property>
+		<property 
+			name="telefono"
+			value="954123456789"
+		>
+		</property>
+		<property 
+			name="email"
+			value="andrea@gmail.com"
+		>
+		</property>
+	</bean>
+	
+	<!-- BEANS WITH SET -->
+	
+	<bean
+		id="luismi"
+		class="beanwithset.Alumno"
+	>
+		<property 
+			name="nombre"
+			value="Luis Miguel Lopez"
+		>
+		</property>
+		<property 
+			name="notas"
+		>
+			<set>
+				<bean
+					class="beanwithset.Nota"
+				>
+					<property 
+						name="nota"
+						value="7"
+					>
+					</property>
+					<property 
+						name="asignatura"
+						value="lengua"
+					>
+					</property>
+				</bean>
+				<ref bean="historia" />
+			</set>
+		</property>
+	</bean>
+	
+	<bean
+		id="historia"
+		class="beanwithset.Nota"
+	>
+		<property 
+			name="nota"
+			value="10"
+		>
+		</property>
+		<property 
+			name="asignatura"
+			value="historia"
+		>
+		</property>
+	</bean>
+</beans> 
