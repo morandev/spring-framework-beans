@@ -9,7 +9,7 @@ public class App {
 	public static void main(String[] args) {
 		ApplicationContext appContext = new ClassPathXmlApplicationContext("introspring/beans.xml");
 		
-		Vehiculo v1 = (Vehiculo) appContext.getBean("vehiculo");
+//		Vehiculo v1 = (Vehiculo) appContext.getBean("vehiculo");
 //		v1.setMarca("Porsche");
 //		v1.setModelo("911");
 		
@@ -17,7 +17,7 @@ public class App {
 //		v2.setMarca("Seat");
 //		v2.setModelo("Marbella"); 22:30
 		
-		System.out.println(v1);
+//		System.out.println(v1);
 //		System.out.println(v2);
 		
 		( (ConfigurableApplicationContext) appContext ).close();
