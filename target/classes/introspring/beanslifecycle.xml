@@ -13,4 +13,19 @@
 		<property name="mensaje" value="Hola, cliente x">
 		</property>
 	</bean>
+	
+	<!-- 
+	 	Default init() and destroy()
+	 	
+			-Local definitions applicable to a single bean 
+	-->
+	<bean
+		id="clienteservicios"
+		class="beanlifecycle.ClientesServicio"
+		init-method="initBean"
+		destroy-method="destroyBean"
+	>
+		<property name="mensaje" value="Hola, cliente x">
+		</property>
+	</bean>
 </beans>
