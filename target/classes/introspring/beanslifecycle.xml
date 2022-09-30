@@ -28,4 +28,27 @@
 		<property name="mensaje" value="Hola, cliente x">
 		</property>
 	</bean>
+	<!--
+		Este bean se encarga de escanear las anotaciones PostConstruct y
+		PreDestroy
+		
+		This post-processor includes support for the PostConstruct and 
+		PreDestroy annotations 
+	-->
+	<bean
+		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"
+	>
+	
+	<!-- 
+		annotations based life cycle specification methods
+	-->
+	</bean>
+		<bean
+		id="clientesservicios"
+		class="beanlifecycle.withanotations.ClientesServicio"
+	>
+		<property name="mensaje" value="Hola, cliente x">
+		</property>
+	</bean>
+	
 </beans>
