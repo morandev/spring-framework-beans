@@ -30,6 +30,7 @@
     		tambien se puede inyectar desde un constructor
     		
     	-->
+    	
     	<constructor-arg 
     		name="mensaje" 
     		value="Constructor Bean hello world!"
@@ -38,4 +39,233 @@
     	
     </bean>
     
+    
+    <bean 
+    	id="vehiculo"
+    	class="beanwithreferences.Vehiculo"
+    >
+    <!-- 
+    	<property 
+    		name="marca"
+    		value="Mercedes Benz"
+    	>
+    	</property>
+    	<property 
+    		name="modelo"
+    		value="Clase C"
+    	>
+    	</property>
+    	<property 
+    		name="motor"
+    		ref="motor"
+		>
+			
+				el atributo ref de la etiqueta property nos permite
+				referenciar, para inyectar a uan determinada propiedad,
+				otro bean que tengamos definido dentro de nuestro fichero
+				de definicion de beans
+			 
+    	</property>
+	-->
+		<!-- 
+		<constructor-arg
+			name="marca"
+			value="Mercedez benz constructor"
+		>
+		</constructor-arg>
+		<constructor-arg
+			name="modelo"
+			value="Clase C constructor"
+		>
+		</constructor-arg>
+		<constructor-arg
+			name="motor"
+			ref="motor"
+		>
+
+				el atributo ref de la etiqueta constructor-arg nos permite
+				referenciar, para inyectar a uan determinada propiedad,
+				otro bean que tengamos definido dentro de nuestro fichero
+				de definicion de beans
+
+		</constructor-arg>
+		-->
+		<!-- DESDE AQUI VAMOS A USAR INYECCION MEDIANTE ANIDACION DE BEANS -->
+		<property 
+    		name="marca"
+    		value="Mercedes Benz"
+    	>
+    	</property>
+    	<property 
+    		name="modelo"
+    		value="Clase C"
+    	>
+		</property>
+		<property 
+			name="motor"
+		>
+			<bean
+		    	id="motor"
+		    	class="beanwithreferences.Motor"
+		    >
+	    		<property 
+		    		name="culata"
+	    		>
+				    <bean
+				    	id="culata"
+				    	class="beanwithreferences.Culata"
+				    >
+		    	    	<constructor-arg
+				    		name="cantidadBujias"
+				    		value="4"
+				    	>
+				    	</constructor-arg>
+				    </bean>
+	    		</property>
+		    	<property 
+		    		name="bloque"
+    			>
+    				<bean
+				    	id="bloque"
+				    	class="beanwithreferences.Bloque"
+				    >
+		    	    	<constructor-arg
+							name="cantidadCilindros"
+							value="4"
+				    	>
+				    	</constructor-arg>
+    				</bean>
+		    	</property>
+		    	<property 
+		    		name="carter"
+	    		>
+    			    <bean
+				    	id="carter"
+				    	class="beanwithreferences.Carter"
+				    >
+		    	    	<constructor-arg
+							name="volumenAceite"
+							value="6.5"
+				    	>
+				    	</constructor-arg>
+    			    </bean>
+		    	</property>
+		    	<property 
+		    		name="cilindrada"
+		    		value="1.8"
+				>
+	    		</property>
+			</bean>	
+		</property>
+    </bean>
+    <!-- 
+    DESDE AQUI COMENTAMOS LOS BEANS YA QUE EL EJEMPLO QUE DEJO FUNCIONAL 
+    ES LA INYECCION MEDIANTE ANIDAMIENTO DE BEANS
+    
+    <bean
+    	id="motor"
+    	class="beanwithreferences.Motor"
+    >
+
+    	<property 
+    		name="culata"
+    		ref="culata">
+    	</property>
+    	<property 
+    		name="bloque"
+    		ref="bloque">
+    	</property>
+    	<property 
+    		name="carter"
+    		ref="carter">
+    	</property>
+    	<property 
+    		name="cilindrada"
+    		value="1.8"
+		>
+    	</property>
+  
+   
+    	<constructor-arg
+    		name="cilindrada"
+    		value="1.8"
+    	>
+    	</constructor-arg>
+    	<constructor-arg
+    		name="culata"
+    		ref="culata"
+    	>
+    	</constructor-arg>
+    	<constructor-arg
+    		name="bloque"
+    		ref="bloque"
+    	>
+    	</constructor-arg>
+    	<constructor-arg
+    		name="carter"
+    		ref="carter"
+    	>
+    	</constructor-arg>
+
+    </bean>
+    
+    <bean
+    	id="culata"
+    	class="beanwithreferences.Culata"
+    >
+  
+	    	<property 
+	    		name="cantidadBujias"
+				value="4"
+			>
+			</property>
+   
+    
+    	<constructor-arg
+    		name="cantidadBujias"
+    		value="4"
+    	>
+    	</constructor-arg>
+    
+    </bean>
+    
+    <bean
+    	id="bloque"
+    	class="beanwithreferences.Bloque"
+    >
+
+    	<property 
+    		name="cantidadCilindros"
+			value="4"
+		>
+		</property>
+
+	
+    	<constructor-arg
+			name="cantidadCilindros"
+			value="4"
+    	>
+    	</constructor-arg>
+	
+    </bean>
+    
+    <bean
+    	id="carter"
+    	class="beanwithreferences.Carter"
+    >
+    
+    	<property 
+    		name="volumenAceite"
+			value="6.5"
+		>
+		</property>
+
+    	<constructor-arg
+			name="volumenAceite"
+			value="6.5"
+    	>
+    	</constructor-arg>
+	
+    </bean>
+    -->
 </beans> 
