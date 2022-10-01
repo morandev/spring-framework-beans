@@ -1,0 +1,47 @@
+package beanannotationconfig.autowire;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+public class Poblacion {
+	private String nombre;
+	
+	/**
+	 * 	@Autowired
+	 * 	It is only applied to the bean property setter methods, constructors,
+	 *  non-setter methods and properties.
+	 */
+	@Autowired
+	private Provincia provincia;
+	
+	public Poblacion() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Poblacion(String nombre, Provincia provincia) {
+		super();
+		this.nombre = nombre;
+		this.provincia = provincia;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Provincia getProvincia() {
+		return provincia;
+	}
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
+	}
+
+	@Override
+	public String toString() {
+		return "Poblacion [nombre=" + nombre + ", provincia=" + provincia + "]";
+	}
+	
+}

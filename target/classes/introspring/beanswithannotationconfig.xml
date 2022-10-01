@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context" xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- 
+      	Once the tag <context:annotation-config/> is configured you have 
+      	the authority to start annotating your code. 
+      	It will indicate that the Spring should automatically wire the values 
+      	into properties methods and constructors.
+      -->
+	<context:annotation-config />
+	<!-- bean definitions go here -->
+	<context:component-scan base-package="beanannotationconfig" />
+
+	<bean id="sevilla" class="beanannotationconfig.autowire.Provincia">
+		<property name="nombre" value="sevilla"></property>
+	</bean>
+
+	<bean id="sevillacapital" class="beanannotationconfig.autowire.Poblacion">
+		<property name="nombre" value="sevillacapital"></property>
+	</bean>
+
+	<bean id="mairenaAljarafe" class="beanannotationconfig.autowire.Poblacion">
+		<property name="nombre" value="mairenaAljarafe"></property>
+	</bean>
+
+	<bean id="cliente" class="beanannotationconfig.autowire.Cliente">
+		<property name="id" value="1"></property>
+	</bean>
+
+	<bean id="persona" class="beanannotationconfig.autowire.Persona">
+		<property name="nombre" value="luismi"></property>
+	</bean>
+</beans>
